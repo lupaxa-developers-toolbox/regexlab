@@ -1021,13 +1021,16 @@ class Parser:
         return self.make("backref", start, kind="number", number=group)
 
     @overload
-    def _char_result(self, start: int, char: str, in_class: Literal[True]) -> dict[str, Any]: ...
+    def _char_result(self, start: int, char: str, in_class: Literal[True]) -> dict[str, Any]:
+        pass
 
     @overload
-    def _char_result(self, start: int, char: str, in_class: Literal[False]) -> Node: ...
+    def _char_result(self, start: int, char: str, in_class: Literal[False]) -> Node:
+        pass
 
     @overload
-    def _char_result(self, start: int, char: str, in_class: bool) -> Node | dict[str, Any]: ...
+    def _char_result(self, start: int, char: str, in_class: bool) -> Node | dict[str, Any]:
+        pass
 
     def _char_result(self, start: int, char: str, in_class: bool) -> Node | dict[str, Any]:
         if in_class:
